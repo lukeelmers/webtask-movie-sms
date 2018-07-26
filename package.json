@@ -1,0 +1,23 @@
+{
+  "name": "wt-movie-sms",
+  "version": "1.0.0",
+  "description": "Webtask that runs every Friday night and sends an SMS with top-rated streaming movies.",
+  "author": "Luke Elmers",
+  "repository": "lukeelmers/wt-movie-sms",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "wt serve --hostname localhost --port 3000 --secrets-file .secrets .",
+    "create": "wt create -b --name=movie-sms --secrets-file .secrets .",
+    "cron": "wt cron create --schedule \"0 19 * * 5\" --tz America/Denver -b --name=movie-sms --secrets-file .secrets ."
+  },
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "node-fetch": "^2.2.0",
+    "twilio": "^3.18.0"
+  },
+  "devDependencies": {
+    "wt-cli": "^10.0.3"
+  }
+}
